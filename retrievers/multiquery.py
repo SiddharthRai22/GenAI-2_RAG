@@ -4,10 +4,8 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_classic.retrievers.multi_query import MultiQueryRetriever
 from langchain_mistralai import ChatMistralAI
 from dotenv import load_dotenv
-
-
-
 load_dotenv()
+
 
 docs = [
     Document(page_content="Gradient descent is an optimization algorithm used in machine learning."),

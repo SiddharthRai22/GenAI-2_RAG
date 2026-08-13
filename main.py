@@ -29,6 +29,7 @@ from langchain_core.prompts import ChatPromptTemplate
 
 load_dotenv()
 
+# user query embedding
 embedding_model = OpenAIEmbeddings()
 
 vectorstore = Chroma(
@@ -40,8 +41,8 @@ retriever = vectorstore.as_retriever(
     search_type = "mmr",
     search_kwargs = {
         "k" : 4,
-        "fetch_k":10,
-        "lambda_mult" :0.5
+        "fetch_k":10, # first you do similarity search and take out 10 result and then do mmr on that 10 result and take out 4 result
+        "lambda_mult" :0.5 # lambda_mult is use for diverse result 1 mean less diverse and 0 mean more diverse
     }
 )
 

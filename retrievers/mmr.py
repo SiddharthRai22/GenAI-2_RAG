@@ -18,7 +18,7 @@ embeddings = HuggingFaceEmbeddings()
 
 vectorstore = Chroma.from_documents(docs, embeddings)
 
-
+# retrivers :- (use Similarity Search (Most Common) by default)
 similarity_retriever = vectorstore.as_retriever(
     search_type="similarity",
     search_kwargs={"k":3}
@@ -32,6 +32,7 @@ for doc in similarity_docs:
     print(doc.page_content)
 
 
+# retrivers :- MMR (Max Marginal Relevance)
 mmr_retriever = vectorstore.as_retriever(
     search_type="mmr",
     search_kwargs={"k":3}

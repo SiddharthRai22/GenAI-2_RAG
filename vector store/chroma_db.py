@@ -30,6 +30,7 @@ for r in result:
     print(r.page_content)
     print(r.metadata)
 
+# retrivers :- (use Similarity Search (Most Common) by default)
 retriver = vectorstore.as_retriever()
 
 docs = retriver.invoke("Explain deep learning")
